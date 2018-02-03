@@ -5,10 +5,8 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import store from './store';
 
-const cheeses = ['Bath Blue', 'Barkham Blue', 'Buxton Blue'];
-
 ReactDOM.render(
   <Provider store={store}>
-    <CheeseList cheeses={cheeses}/>
+    <CheeseList />
   </Provider>, document.getElementById('root'));
 registerServiceWorker();
