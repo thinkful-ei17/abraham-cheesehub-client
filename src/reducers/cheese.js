@@ -10,24 +10,15 @@ const initialState = {
 export default (state=initialState, action) => {
   switch(action.type){
   case FETCH_CHEESES_REQUEST:
-    return {
-      ...state,
-      loading: true,
-      error: null
-    };
+    return Object.assign({}, state, {loading: true, error: null});
   case FETCH_CHEESES_SUCCESS:
-    return {
-      ...state,
+    return Object.assign({}, state,{
       cheeses: action.cheeses,
       loading: false,
       error: null
-    };
+    });
   case FETCH_CHEESES_ERROR:
-    return {
-      ...state,
-      loading: false,
-      error: action.error
-    };
+    return Object.assign({}, state, {loading: false, error: action.error});
   default:
     return {state};
   }

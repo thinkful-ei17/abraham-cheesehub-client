@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CheeseList from './components/cheese-list';
 import registerServiceWorker from './registerServiceWorker';
-import {Provider} from 'react-redux';
 import store from './store';
+import {Provider} from 'react-redux';
+import CheeseList from './components/cheese-list';
 
 ReactDOM.render(
   <Provider store={store}>

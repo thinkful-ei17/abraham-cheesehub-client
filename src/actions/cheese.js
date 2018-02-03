@@ -10,21 +10,21 @@ export const fetchCheesesSuccess = cheeses =>({
 });
 
 export const FETCH_CHEESES_ERROR= 'FETCH_CHEESES_ERROR';
-const fetchCheesesError = error => ({
+export const fetchCheesesError = error => ({
   type: FETCH_CHEESES_ERROR,
   error
 });
 
 
-const fetchCheeses = () => dispatch => {
+export const fetchCheeses = () => (dispatch) => {
   dispatch(fetchCheesesRequest());
   return fetch('http://localhost:8080/api/cheeses')
-    .then(res => {
+    .then((res) => {
       if(!res.ok){
-        return Promise.reject('Something went wrong');
+        return Promise.reject(res.statusText);
       }
       return res.json();
     })
     .then(cheeses => dispatch(fetchCheesesSuccess(cheeses)))
-    .catch(error => dispatch(fetchCheesesError));
+    .catch(error => dispatch(fetchCheesesError(error)));
 };
