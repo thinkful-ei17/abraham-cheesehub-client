@@ -16,7 +16,7 @@ const fetchCheesesError = error => ({
 });
 
 
-const fetchCheeses = () => {
+const fetchCheeses = () => dispatch => {
   dispatch(fetchCheesesRequest());
   return fetch('http://localhost:8080/api/cheeses')
     .then(res => {
