@@ -18,7 +18,7 @@ export class CheeseList extends React.Component{
     if(this.props.loading && this.props.error === null){
       cheeses = <li>Loading... <Spinner name='circle' /></li>;
     } else {
-      if(this.props.cheeses)cheeses = this.props.cheeses.map((cheese, index) => <li key={index}>{cheese}</li>);
+      if(this.props.cheeses)cheeses = this.props.cheeses.map((cheese) => <li key={cheese._id}>{cheese.name}</li>);
     }
 
     return (
